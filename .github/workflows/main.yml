@@ -1,12 +1,10 @@
-name: Android CI
+name: Android CI/CD
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   pull_request:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
   build:
@@ -14,17 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
+    - name: Checkout código
+      uses: actions/checkout@v3
 
-      - name: Configurar JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - name: Instalar JDK 11
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 11
 
-      - name: Dar permissão aos scripts
-        run: chmod +x gradlew
+    - name: Configurar permissões Gradle
+      run: chmod +x ./gradlew
 
-      - name: Compilar o projeto
-        run: ./gradlew build
+    - name: Build do projeto
+      run: ./gradlew assembleDebug
+
+    - name: Executar testes
+      run: ./gradlew test
+
+    - name: Deploy simulado (upload para artefato)
+      uses: actions/upload-artifact@v3
+      with:
+        name: apk-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
