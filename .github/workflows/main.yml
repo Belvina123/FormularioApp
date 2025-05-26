@@ -1,4 +1,4 @@
-name: CI/CD Android App
+name: Build Android APK
 
 on:
   push:
@@ -7,27 +7,26 @@ on:
 
 jobs:
   build:
-    name: Build APK
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
+      - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Configurar Java 17
+      - name: Configurar Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      - name: Dar permissão ao Gradle
+      - name: Dar permissão ao gradlew
         run: chmod +x ./gradlew
 
-      - name: Build APK com Gradle
+      - name: Build APK Debug
         run: ./gradlew assembleDebug
 
-      - name: Guardar APK como artefacto
+      - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: formularioApp-apk
+          name: app-debug.apk
           path: app/build/outputs/apk/debug/app-debug.apk
