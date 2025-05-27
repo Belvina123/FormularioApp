@@ -1,25 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainCadastro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FFFFFF">
 
     <EditText
         android:id="@+id/editTextNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome" />
+        android:hint="Nome"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text" />
 
     <EditText
         android:id="@+id/editTextIdade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Idade"
-        android:inputType="number" />
+        android:inputType="number"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/buttonCadastrar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar" />
+        android:text="Cadastrar"
+        android:backgroundTint="#0CE4DA"
+        android:textColor="#000000"
+        android:layout_marginTop="24dp" />
 </LinearLayout>

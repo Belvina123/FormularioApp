@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+        <color name="azul_celeste">#87CEEB</color>
+        <color name="verde_esmeralda">#50C878</color>
+        <color name="amarelo_ouro">#FFD700</color>
+        <color name="vermelho_carmesim">#DC143C</color>
+        <color name="roxo_violeta">#8A2BE2</color>
+        <color name="branco_neve">#FFFAFA</color>
+        <color name="preto_classico">#000000</color>
+        <color name="azul_Brilhante">#0CE4DA</color>
+
+
 </resources>
